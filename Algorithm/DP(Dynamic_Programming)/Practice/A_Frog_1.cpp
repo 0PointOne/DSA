@@ -6,6 +6,7 @@ long long minimum_cost(vector<int> &v, int i){
 
     if(i == v.size()-1)    return 0;
     if(dp[i] != -1)         return dp[i];
+    
     long long op1 = minimum_cost(v, i+1) + abs(v[i] - v[i+1]);
 
     long long op2 = LLONG_MAX;

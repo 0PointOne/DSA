@@ -19,8 +19,7 @@ int count_Sub(vector<int> &v, int n, int sum){
     }
 
     return dp[n][sum] = count_Sub(v, n - 1, sum);
-
-    
+ 
 }
 
 int main(){

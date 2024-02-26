@@ -13,15 +13,12 @@ int main(){
     vector<vector<int> > dp(n + 1, vector<int> (w + 1));
     for(int i = 1; i <= n; i++){
         for(int j = 1; j <= w; j++){
-            if(v[i].first <= j){
-                int op1 = dp[i-1][j - v[i-1].first] + v[i-1].second;
-                int op2 = dp[i-1][j];
 
-                dp[i][j] = max(op1, op2);
-            }
-            else{
-                dp[i][j] = dp[i-1][j];
-            }
+
+            int op1 = dp[i][j] = dp[i-1][j];
+            int op2;
+            if(v[i].first <= j)     op2 = dp[i-1][j - v[i-1].first] + v[i-1].second;
+            dp[i][j] = max(op1, op2);
         }
     }
     

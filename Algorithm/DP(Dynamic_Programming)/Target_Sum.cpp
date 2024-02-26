@@ -4,20 +4,6 @@ using namespace std;
 
 vector< vector<int> > dp(1e3, vector<int>(1e3, -1));
 
-//! 1:
-bool make1(vector<int> &v, int i, int sum){
-
-    if(sum == 0)    return true;
-    if(i == v.size())    return false;
-    if(dp[i][sum] != -1) return dp[i][sum];
-    if(v[i] <= sum)      return dp[i][sum] = make1(v, i+1, sum - v[i]) || make1(v, i + 1, sum);
-
-    return dp[i][sum] = make1(v, i + 1, sum);
-}
-
-
-//! Or:
-
 bool make(vector<int> &v, int n, int sum){
     
     if(n == 0){
@@ -54,7 +40,6 @@ int main(){
     }
     else{
         cout << (make(v, n, target/2) ?  "YES"  :  "NO" )  << endl;
-        // cout << (make1(v, 0, target/2) ?  "YES"  :  "NO" )  << endl;
     }
 
 }

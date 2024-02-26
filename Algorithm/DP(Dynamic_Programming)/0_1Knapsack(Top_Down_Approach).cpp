@@ -9,15 +9,12 @@ int knapsack(vector<pair<int, int> > &v, int n, int w){
     if(n < 0 || w == 0) return 0;
 
     if(dp[n][w] != -1)   return dp[n][w];
-    if(v[n].first <= w){
-        
-        int op1 = knapsack(v, n-1, w - v[n].first) + v[n].second;
-        int op2 = knapsack(v, n-1, w);
-        return dp[n][w] = max(op1, op2);
-    }
-    else{
-        return dp[n][w] = knapsack(v, n-1, w);
-    }
+
+    int op1 = knapsack(v, n-1, w);
+    int op2;
+    if(v[n].first <= w)    op2 = knapsack(v, n-1, w - v[n].first) + v[n].second;
+    return dp[n][w] = max(op1, op2);
+    
 }
 
 int main(){

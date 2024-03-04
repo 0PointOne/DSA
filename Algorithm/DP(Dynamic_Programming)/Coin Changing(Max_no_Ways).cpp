@@ -12,7 +12,7 @@ int main(){
 
     int dp[n+1][t+1];
     dp[0][0] = 1;
-    for(int i = 1; i <= t; i++) dp[0][i] = 0;
+    for(int i = 1; i <= t; i++)     dp[0][i] = 0;
 
     for(int i = 1; i <= n; i++){
         for(int j = 0; j <= t; j++){
